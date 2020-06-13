@@ -36,47 +36,11 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"/>
-            </LinearLayout>
+                android:layout_height="match_parent"/>
         </androidx.core.widget.NestedScrollView>
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
