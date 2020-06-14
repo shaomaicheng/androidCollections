@@ -11,10 +11,18 @@
         <action
             android:id="@+id/action_mainFragment_to_networkFragment"
             app:destination="@id/networkFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_frescoFragment"
+            app:destination="@id/frescoFragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/networkFragment"
         android:name="com.cl.workdemo.NetworkFragment"
         android:label="NetworkFragment" />
+
+    <fragment
+        android:id="@+id/frescoFragment"
+        android:name="com.cl.workdemo.FrescoFragment"
+        android:label="图片加载"/>
 </navigation>

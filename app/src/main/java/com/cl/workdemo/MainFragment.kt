@@ -31,10 +31,11 @@ class MainFragment : Fragment() {
     private fun init() {
         context?.let {context->
             binding?.recyclerView?.adapter = MainAdapter(context, arrayListOf(
-                MainTitle("网络请求")
+                MainTitle("网络请求",R.id.action_mainFragment_to_networkFragment),
+                MainTitle("图片加载",R.id.action_mainFragment_to_frescoFragment)
             )) {mainTitle->
                 NavHostFragment.findNavController(this)
-                    .navigate(R.id.action_mainFragment_to_networkFragment)
+                    .navigate(mainTitle.navigationId)
             }
         }
     }
