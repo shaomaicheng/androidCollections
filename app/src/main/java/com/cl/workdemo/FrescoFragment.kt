@@ -4,21 +4,28 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.graphics.drawable.Animatable
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.cl.workdemo.databinding.FragmentFrescoBinding
 import com.facebook.drawee.backends.pipeline.Fresco
+import com.facebook.drawee.controller.ControllerListener
 import com.facebook.drawee.generic.GenericDraweeHierarchy
 import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder
 import com.facebook.drawee.view.DraweeHolder
+import com.facebook.imagepipeline.image.ImageInfo
 
 class FrescoFragment:Fragment() {
     var binding : FragmentFrescoBinding? =null
+    val TAG = this::class.java.simpleName
+
+    val webpUrl = "https://p.upyun.com/demo/webp/animated-gif/0.gif"
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -35,6 +42,47 @@ class FrescoFragment:Fragment() {
             binding.simpleImg1.setImageResource(R.drawable.fresco_test)
             binding.simpleDraweeView1.setImageURI(uri)
             binding.simpleDraweeView2.setUri(uri)
+
+            // 加载webp 动图
+            val localWebUrl = getUriFromDrawableRes(R.drawable.fresco_tets_dynamic)
+            val controller = Fresco.newDraweeControllerBuilder()
+//                .setUri(webpUrl)
+                .setUri(localWebUrl)
+                .setControllerListener(object : ControllerListener<ImageInfo> {
+                    override fun onFailure(id: String?, throwable: Throwable?) {
+                        Log.e(TAG, "onFailure")
+                        throwable?.printStackTrace()
+                    }
+
+                    override fun onRelease(id: String?) {
+                        Log.e(TAG, "onRelease")
+                    }
+
+                    override fun onSubmit(id: String?, callerContext: Any?) {
+                        Log.e(TAG, "onSubmit")
+                    }
+
+                    override fun onIntermediateImageSet(id: String?, imageInfo: ImageInfo?) {
+                        Log.e(TAG, "onIntermediateImageSet")
+                    }
+
+                    override fun onIntermediateImageFailed(id: String?, throwable: Throwable?) {
+                        Log.e(TAG, "onIntermediateImageFailed")
+                    }
+
+                    override fun onFinalImageSet(
+                        id: String?,
+                        imageInfo: ImageInfo?,
+                        animatable: Animatable?
+                    ) {
+                        Log.e(TAG, "onFinalImageSet")
+                    }
+
+                })
+                .setAutoPlayAnimations(true)
+                .build()
+            binding.simpleDraweeViewWebP.controller = controller
+
         }
     }
 
