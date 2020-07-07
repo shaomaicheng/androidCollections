@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
 
@@ -14,6 +15,9 @@
         <action
             android:id="@+id/action_mainFragment_to_frescoFragment"
             app:destination="@id/frescoFragment"/>
+        <action
+            android:id="@+id/action_mainFragment_to_jetpackFragment"
+            app:destination="@id/jetpackFragment"/>
     </fragment>
 
     <fragment
@@ -25,4 +29,9 @@
         android:id="@+id/frescoFragment"
         android:name="com.cl.workdemo.FrescoFragment"
         android:label="图片加载"/>
+
+    <fragment
+        android:id="@+id/jetpackFragment"
+        android:name="com.cl.workdemo.jetpack.JetpackPageFragment"
+        tools:layout="jetpack的demo页面"/>
 </navigation>

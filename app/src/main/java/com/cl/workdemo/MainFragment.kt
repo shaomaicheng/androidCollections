@@ -32,7 +32,8 @@ class MainFragment : Fragment() {
         context?.let {context->
             binding?.recyclerView?.adapter = MainAdapter(context, arrayListOf(
                 MainTitle("网络请求",R.id.action_mainFragment_to_networkFragment),
-                MainTitle("图片加载",R.id.action_mainFragment_to_frescoFragment)
+                MainTitle("图片加载",R.id.action_mainFragment_to_frescoFragment),
+                MainTitle("jetpack的demo页面",R.id.action_mainFragment_to_jetpackFragment)
             )) {mainTitle->
                 NavHostFragment.findNavController(this)
                     .navigate(mainTitle.navigationId)
