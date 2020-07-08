@@ -9,6 +9,9 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.OnBackPressedDispatcher
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
+import com.cl.workdemo.R
 import com.cl.workdemo.databinding.FragmentJetpackBinding
 
 class JetpackPageFragment: Fragment() {
@@ -26,6 +29,10 @@ class JetpackPageFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentJetpackBinding.inflate(inflater, container, false)
+        binding.tvGotoJetpackChild.setOnClickListener {
+            it.findNavController()
+                .navigate(R.id.action_jetpackFragment_to_jetpackChildFragment)
+        }
             return binding.root
     }
 
