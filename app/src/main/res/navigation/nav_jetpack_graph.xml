@@ -14,7 +14,7 @@
             />
 
         <action android:id="@+id/action_jetpackFragment_to_jetpackLifecycleFragment"
-            app:destination="@id/jetpackLifecycleFragment"/>
+            app:destination="@+id/jetpackLifecycleFragment"/>
     </fragment>
 
     <fragment android:id="@+id/jetpackChildFragment"

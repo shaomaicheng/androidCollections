@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">workdemo</string>
+    <string name="to_installed">开始插</string>
+    <string name="to_uninstall">开始拔</string>
 </resources>

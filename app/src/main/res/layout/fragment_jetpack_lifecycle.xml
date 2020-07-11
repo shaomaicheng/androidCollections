@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
     <data>
-
+        <import type="com.cl.workdemo.jetpack.JetpackLifecycleViewModel"/>
+        <variable
+            name="vm"
+            type="JetpackLifecycleViewModel" />
+        <import type="android.view.View"/>
+        <variable
+            name="clicker"
+            type="android.view.View.OnClickListener" />
     </data>
 
     <!-- 生命周期 -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <!-- 点击之后动态插拔 -->
+        <Button
+            android:id="@+id/btnInstallOrUninstall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:onClick="@{clicker::onClick}"
+            android:background="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white"
+            tools:text="插拔测试"
+            android:text="@{vm.installed ? @string/to_uninstall : @string/to_installed}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
