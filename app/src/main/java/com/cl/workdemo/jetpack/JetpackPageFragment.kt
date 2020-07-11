@@ -33,6 +33,10 @@ class JetpackPageFragment: Fragment() {
             it.findNavController()
                 .navigate(R.id.action_jetpackFragment_to_jetpackChildFragment)
         }
+        binding.tvGotoLifecyclePage.setOnClickListener {
+            it.findNavController()
+                .navigate(R.id.action_jetpackFragment_to_jetpackLifecycleFragment)
+        }
             return binding.root
     }
 

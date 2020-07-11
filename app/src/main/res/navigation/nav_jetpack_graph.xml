@@ -12,10 +12,15 @@
             android:id="@+id/action_jetpackFragment_to_jetpackChildFragment"
             app:destination="@+id/jetpackChildFragment"
             />
+
+        <action android:id="@+id/action_jetpackFragment_to_jetpackLifecycleFragment"
+            app:destination="@id/jetpackLifecycleFragment"/>
     </fragment>
 
     <fragment android:id="@+id/jetpackChildFragment"
         android:name="com.cl.workdemo.jetpack.JetpackChildPageFragment"/>
 
+    <fragment android:id="@+id/jetpackLifecycleFragment"
+        android:name="com.cl.workdemo.jetpack.JetpackLifecycleFragment"/>
 
 </navigation>
